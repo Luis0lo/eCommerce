@@ -31,13 +31,47 @@ export const categories = [
     title: 'FLOWERS',
   },
   {
-    id: 1,
+    id: 2,
     img: 'https://i.etsystatic.com/28190841/r/il/77e2d1/3896897813/il_794xN.3896897813_n35p.jpg',
     title: 'ANIMALS',
   },
   {
-    id: 1,
+    id: 3,
     img: 'https://i.etsystatic.com/21061991/r/il/8ba3d7/2599532347/il_794xN.2599532347_6izg.jpg',
     title: 'HATS',
+  },
+];
+export const popularProducts = [
+  {
+    id: 1,
+    img: 'https://i.etsystatic.com/24610527/r/il/0f3f48/3847769747/il_794xN.3847769747_171f.jpg',
+  },
+  {
+    id: 2,
+    img: 'https://i.etsystatic.com/24610527/r/il/0f3f48/3847769747/il_794xN.3847769747_171f.jpg',
+  },
+  {
+    id: 3,
+    img: 'https://i.etsystatic.com/24610527/r/il/0f3f48/3847769747/il_794xN.3847769747_171f.jpg',
+  },
+  {
+    id: 4,
+    img: 'https://i.etsystatic.com/24610527/r/il/0f3f48/3847769747/il_794xN.3847769747_171f.jpg',
+  },
+  {
+    id: 5,
+    img: 'https://i.etsystatic.com/24610527/r/il/0f3f48/3847769747/il_794xN.3847769747_171f.jpg',
+  },
+  {
+    id: 6,
+    img: 'https://i.etsystatic.com/24610527/r/il/0f3f48/3847769747/il_794xN.3847769747_171f.jpg',
+  },
+  {
+    id: 7,
+    img: 'https://i.etsystatic.com/24610527/r/il/0f3f48/3847769747/il_794xN.3847769747_171f.jpg',
+  },
+  {
+    id: 8,
+    img: 'https://i.etsystatic.com/24610527/r/il/0f3f48/3847769747/il_794xN.3847769747_171f.jpg',
   },
 ];

@@ -30,8 +30,6 @@ const Title = styled.h1`
   color: white;
   margin-bottom: 20px;
   text-shadow: 2px 2px black;
-
-  
 `;
 const Button = styled.button`
   border: none;
