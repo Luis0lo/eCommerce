@@ -4,18 +4,25 @@ import { Search, ShoppingCartOutlined } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
 
 const Container = styled.div`
-  height: 60px;
+  min-height: 3.75rem;
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 `;
-const Left = styled.div`
+const Center = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
+  @media (max-width: 768px) {
+    padding-top: 2px;
+    flex: 0 0 100%;
+    order: 2;
+  }
 `;
 const Language = styled.span`
   font-size: 14px;
@@ -32,9 +39,9 @@ const Input = styled.input`
   border: none;
 `;
 
-const Center = styled.div`
+const Left = styled.div`
   flex: 1;
-  text-align: center;
+  /* text-align: center; */
 `;
 const Logo = styled.h1`
   font-weight: bold;
@@ -48,7 +55,7 @@ const Rigth = styled.div`
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
-  margin-left: 25px;
+  margin-left: 20px;
 `;
 
 const Navbar = () => {
@@ -56,14 +63,14 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
+          <Logo>KnitLand</Logo>
+        </Left>
+        <Center>
           <Language>EN</Language>
           <SearchContainer>
             <Input />
             <Search style={{ color: 'grey', fontSize: '16px' }} />
           </SearchContainer>
-        </Left>
-        <Center>
-          <Logo>KnitLand</Logo>
         </Center>
         <Rigth>
           <MenuItem>REGISTER</MenuItem>
