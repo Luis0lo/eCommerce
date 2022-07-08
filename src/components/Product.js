@@ -18,6 +18,12 @@ const Info = styled.div`
   align-items: center;
   justify-content: center;
   transition: all 0.5s ease;
+  @media (max-width: 768px) {
+    opacity: 1;
+    height: auto;
+    position: relative;
+    background-color: transparent;
+  }
 `;
 const Container = styled.div`
   flex: 1;
@@ -31,6 +37,9 @@ const Container = styled.div`
   position: relative;
   &:hover ${Info} {
     opacity: 1;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 const Circle = styled.div`
