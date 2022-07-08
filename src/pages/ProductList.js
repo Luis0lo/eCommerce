@@ -14,6 +14,9 @@ const Title = styled.h1`
 const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Filter = styled.div`
@@ -24,6 +27,9 @@ const FilterText = styled.span`
   font-size: 20px;
   font-weight: 600;
   margin-right: 20px;
+  @media (max-width: 468px) {
+    display: block;
+  }
 `;
 
 const Select = styled.select`
