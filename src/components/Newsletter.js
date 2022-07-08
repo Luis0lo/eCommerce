@@ -8,6 +8,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  @media (max-width: 768px) {
+    height: 40vh;
+  }
 `;
 const Title = styled.h1`
   font-size: 70px;
@@ -25,6 +28,9 @@ const InputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   border: 1px solid lightgray;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 const Input = styled.input`
   border: none;
