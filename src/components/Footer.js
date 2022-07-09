@@ -8,6 +8,7 @@ import {
   MailOutline,
   Phone,
 } from '@material-ui/icons';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
   display: flex;
@@ -48,6 +49,7 @@ const SocialIcon = styled.div`
 const Center = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({ backgroundColor: '#fff8f8' })}
 `;
 
 const Title = styled.h3`
@@ -71,6 +73,7 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({ backgroundColor: '#fff8f8' })}
 `;
 const ContactItem = styled.div`
   margin-bottom: 20px;
@@ -88,7 +91,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>KnitLand</Logo>
+        <Logo>CrochetIsland</Logo>
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam modi
           eum tenetur? Eveniet, esse. Illum voluptas molestiae voluptatem

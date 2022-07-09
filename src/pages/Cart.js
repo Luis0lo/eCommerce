@@ -3,10 +3,12 @@ import Navbar from '../components/Navbar';
 import Announcement from '../components/Announcement';
 import Footer from '../components/Footer';
 import { Add, Remove } from '@material-ui/icons';
+import { mobile } from '../responsive';
 
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
+  ${mobile({ padding: '10px' })}
 `;
 const Title = styled.h1`
   font-weight: 300;
@@ -27,7 +29,9 @@ const TopButton = styled.button`
     props.type === 'filled' ? 'black' : 'transparent'};
   color: ${(props) => props.type === 'filled' && 'white'};
 `;
-const TopTexts = styled.div``;
+const TopTexts = styled.div`
+  ${mobile({ display: 'none' })}
+`;
 const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
@@ -37,6 +41,7 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: 'column' })}
 `;
 const Info = styled.div`
   flex: 3;
@@ -44,6 +49,7 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  /* ${mobile({ flexDirection: 'column' })} */
 `;
 const ProductDetail = styled.div`
   flex: 2;
@@ -54,9 +60,10 @@ const Image = styled.img`
   height: 200px;
   object-fit: cover;
   border-radius: 5px;
+  ${mobile({ width: '150px', height: '150px' })}
 `;
 const Details = styled.div`
-  padding: 20px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -86,6 +93,7 @@ const ProductAmountContainer = styled.div`
 const ProductAmount = styled.div`
   font-size: 24px;
   margin: 5px;
+  ${mobile({ margin: '5px 10px' })}
 `;
 const ProductPrice = styled.div`
   font-size: 30px;
@@ -96,6 +104,7 @@ const Hr = styled.hr`
   border: none;
   height: 1px;
   margin: 3px 0px;
+  ${mobile({ margin: '5px 0' })}
 `;
 
 const Summary = styled.div`
@@ -104,6 +113,7 @@ const Summary = styled.div`
   border-radius: 10px;
   padding: 20px;
   height: 50vh;
+  ${mobile({ margin: '15px 0px 0px 0px' })}
 `;
 const SummaryTitle = styled.h1`
   font-weight: 200;

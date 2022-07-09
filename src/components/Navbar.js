@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { Search, ShoppingCartOutlined } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
   min-height: 3.75rem;
+  /* ${mobile({ backgroundColor: 'red' })} */
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -27,6 +29,7 @@ const Center = styled.div`
 const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
+  ${mobile({ display: 'none' })}
 `;
 const SearchContainer = styled.div`
   border: 0.5px solid lightgray;
@@ -37,6 +40,7 @@ const SearchContainer = styled.div`
 `;
 const Input = styled.input`
   border: none;
+  ${mobile({ width: '200px' })}
 `;
 
 const Left = styled.div`
@@ -63,7 +67,7 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Logo>KnitLand</Logo>
+          <Logo>CrochetIsland</Logo>
         </Left>
         <Center>
           <Language>EN</Language>
