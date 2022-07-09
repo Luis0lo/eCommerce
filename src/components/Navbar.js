@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  ${mobile({ padding: '10px 15px 10px 5px ' })}
 `;
 const Center = styled.div`
   flex: 1;
@@ -60,6 +61,7 @@ const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 20px;
+  ${mobile({ marginLeft: '10px' })}
 `;
 
 const Navbar = () => {
