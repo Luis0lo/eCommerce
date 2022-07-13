@@ -37,3 +37,4 @@ Making my partner's hobby profitable and learning new skills as a developer buil
 - react: ^17.0.2,
 - react-dom: ^17.0.2,
 - styled-components: ^5.3.5,
+- react-router-dom: ^6.3.0
