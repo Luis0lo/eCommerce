@@ -29,16 +29,19 @@ export const categories = [
     id: 1,
     img: 'https://i.etsystatic.com/24610527/r/il/0f3f48/3847769747/il_794xN.3847769747_171f.jpg',
     title: 'FLOWERS',
+    cat: 'flowers',
   },
   {
     id: 2,
     img: 'https://i.etsystatic.com/28190841/r/il/77e2d1/3896897813/il_794xN.3896897813_n35p.jpg',
     title: 'ANIMALS',
+    cat: 'animals',
   },
   {
     id: 3,
     img: 'https://i.etsystatic.com/21061991/r/il/8ba3d7/2599532347/il_794xN.2599532347_6izg.jpg',
     title: 'HATS',
+    cat: 'hats',
   },
 ];
 export const popularProducts = [
