@@ -50,7 +50,7 @@ const ProductList = () => {
 
     setFilters({
       ...filters,
-      [e.target.name]: value,
+      [e.target.name]: value.toLowerCase(),
     });
   };
 
@@ -69,7 +69,7 @@ const ProductList = () => {
             <Option>Blue</Option>
             <Option>Green</Option>
             <Option>Orange</Option>
-            <Option>White</Option>
+            <Option>Purple</Option>
             <Option>Black</Option>
           </Select>
           <Select name="size" onChange={handleFilters}>
@@ -88,7 +88,7 @@ const ProductList = () => {
           </Select>
         </Filter>
       </FilterContainer>
-      <Products category={category} filter={filters} sort={sort} />
+      <Products category={category} filters={filters} sort={sort} />
       <NewsLetter />
       <Footer />
     </Container>
