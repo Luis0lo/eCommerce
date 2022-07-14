@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Success from './pages/Success';
 
 const App = () => {
   const user = true;
@@ -26,6 +27,7 @@ const App = () => {
           path="/register"
           element={user ? <Home /> : <Register />}
         ></Route>
+        <Route path="/success" element={<Success />}></Route>
       </Routes>
     </BrowserRouter>
   );

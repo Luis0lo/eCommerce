@@ -41,4 +41,5 @@ Making my partner's hobby profitable and learning new skills as a developer buil
 - axios: ^0.27.2,
 - @reduxjs/toolkit: ^1.8.3,
 - react-redux: ^8.0.2
-- 
+- react-stripe-checkout: ^2.6.3
+
