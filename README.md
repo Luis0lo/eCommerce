@@ -39,4 +39,6 @@ Making my partner's hobby profitable and learning new skills as a developer buil
 - styled-components: ^5.3.5,
 - react-router-dom: ^6.3.0,
 - axios: ^0.27.2,
-
+- @reduxjs/toolkit: ^1.8.3,
+- react-redux: ^8.0.2
+- 
