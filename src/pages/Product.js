@@ -4,6 +4,10 @@ import Announcement from '../components/Announcement';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import NewsLetter from '../components/Newsletter';
+import { useLocation } from 'react-router';
+import { useEffect, useState } from 'react';
+import { publicRequest } from '../requestMethods';
+// import axios from 'axios';
 
 const Container = styled.div``;
 
@@ -114,44 +118,80 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split('/')[2];
+
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState('');
+  const [size, setSize] = useState('');
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get('products/find/' + id);
+        setProduct(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+      // try {
+      //   const res = await axios.get(
+      //     `http://localhost:5000/api/products/find/${id}`
+      //   );
+      //   setProduct(res.data);
+      // } catch (err) {
+      //   console.log(err);
+      // }
+    };
+    getProduct();
+  }, [id]);
+
+  const handleQuantity = (type) => {
+    if (type === 'decrease') {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+
+const handleClick =()=>{
+  //update cart
+}
   return (
     <Container>
       <Navbar />
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://i.etsystatic.com/25902233/r/il/6fdc49/3688393606/il_794xN.3688393606_1kw2.jpg" />
+          <Image src={product.img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Sunflower</Title>
-          <Description>
-            Crochet sunflowers, sunflower, faux flowers, Mother’s Day, birthday
-            gifts, flowers, summer flowers, spring, Easter, home decor.
-          </Description>
-          <Price>£ 7.5</Price>
+          <Title>{product.title}</Title>
+          <Description>{product.desc}</Description>
+          <Price>£ {product.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color="yellow" />
-              <FilterColor color="black" />
-              <FilterColor color="blue" />
+              {product.color?.map((c) => (
+                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
+              ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>SMALL</FilterSizeOption>
-                <FilterSizeOption>MEDIUM</FilterSizeOption>
-                <FilterSizeOption>LARGE</FilterSizeOption>
+              <FilterSize onChange={(e) => setSize(e.target.value)}>
+                {product.size?.map((s) => (
+                  <FilterSizeOption key={s}>{s}</FilterSizeOption>
+                ))}
               </FilterSize>
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={() => handleQuantity('decrease')} />
+              <Amount>{quantity}</Amount>
+              <Add onClick={() => handleQuantity('increase')} />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
