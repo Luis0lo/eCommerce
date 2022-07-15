@@ -158,13 +158,13 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: cart.total * 100,
         });
-        navigate('/success', { state: { data: res.data } });
+        navigate('/success', { state: { stripeData: res.data, products: cart } });
       } catch (err) {
         console.log(err);
       }
     };
     stripeToken && cart.total >= 1 && makeRequest();
-  }, [stripeToken, cart.total, navigate]);
+  }, [stripeToken, cart.total, navigate, cart]);
 
   console.log(stripeToken);
   return (
