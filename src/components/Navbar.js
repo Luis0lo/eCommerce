@@ -53,6 +53,10 @@ const Left = styled.div`
 const Logo = styled.h1`
   font-weight: bold;
 `;
+const LinkStyled = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
 const Rigth = styled.div`
   flex: 1;
   display: flex;
@@ -74,7 +78,9 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Logo>CrochetIsland</Logo>
+          <LinkStyled to="/">
+            <Logo>CrochetIsland</Logo>
+          </LinkStyled>
         </Left>
         <Center>
           <Language>EN</Language>
@@ -84,8 +90,12 @@ const Navbar = () => {
           </SearchContainer>
         </Center>
         <Rigth>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>
+            <LinkStyled to="/register"> REGISTER</LinkStyled>
+          </MenuItem>
+          <MenuItem>
+            <LinkStyled to="/login">SIGN IN</LinkStyled>
+          </MenuItem>
           <Link to="/cart">
             <MenuItem>
               <Badge badgeContent={quantity} color="primary">

@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { useEffect, useState } from 'react';
 import { userRequest } from '../requestMethods';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const KEY = process.env.REACT_APP_STRIPE;
 
@@ -142,6 +142,11 @@ const SummaryButton = styled.button`
   color: white;
 `;
 
+const LinkStyled = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
@@ -158,7 +163,9 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: cart.total * 100,
         });
-        navigate('/success', { state: { stripeData: res.data, products: cart } });
+        navigate('/success', {
+          state: { stripeData: res.data, products: cart },
+        });
       } catch (err) {
         console.log(err);
       }
@@ -166,7 +173,7 @@ const Cart = () => {
     stripeToken && cart.total >= 1 && makeRequest();
   }, [stripeToken, cart.total, navigate, cart]);
 
-  console.log(stripeToken);
+  // console.log(stripeToken);
   return (
     <Container>
       <Navbar />
@@ -174,10 +181,12 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>KEEP SHOOPING</TopButton>
+          <TopButton>
+            <LinkStyled to="/products">KEEP SHOOPING</LinkStyled>{' '}
+          </TopButton>
           <TopTexts>
-            <TopText>Cart(2)</TopText>
-            <TopText>Whislist(6)</TopText>
+            <TopText>Cart({cart.products.length})</TopText>
+            <TopText>Whislist(0)</TopText>
           </TopTexts>
           <TopButton type="filled">CHECKOUT</TopButton>
         </Top>

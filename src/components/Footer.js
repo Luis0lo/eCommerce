@@ -9,6 +9,7 @@ import {
   Phone,
 } from '@material-ui/icons';
 import { mobile } from '../responsive';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -87,11 +88,19 @@ const Payment = styled.img`
   }
 `;
 
+const LinkStyled = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
 const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>CrochetIsland</Logo>
+        <LinkStyled to="/">
+          <Logo>CrochetIsland</Logo>
+        </LinkStyled>
+
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam modi
           eum tenetur? Eveniet, esse. Illum voluptas molestiae voluptatem
@@ -116,7 +125,7 @@ const Footer = () => {
       <Center>
         <Title>Useful Links</Title>
         <List>
-          <ListItem>Home</ListItem>
+          <ListItem><LinkStyled to='/'>Home</LinkStyled> </ListItem>
           <ListItem>Cart</ListItem>
           <ListItem>Accessories</ListItem>
           <ListItem>My Account</ListItem>
