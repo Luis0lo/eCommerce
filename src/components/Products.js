@@ -14,7 +14,7 @@ const Container = styled.div`
 const Products = ({ category, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-
+ 
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -23,6 +23,12 @@ const Products = ({ category, filters, sort }) => {
             ? `http://localhost:5000/api/products?category=${category}`
             : 'http://localhost:5000/api/products'
         );
+        // try {
+        //   const res = await axios.get(
+        //     category
+        //       ? `${BASE_URL}products?category=${category}`
+        //       : `${BASE_URL}products`
+        //   );
         await setProducts(res.data);
         // console.log(res);
       } catch (err) {
