@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Search, ShoppingCartOutlined } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
@@ -73,15 +72,17 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const user = useSelector((state) => state.user.currentUser);
+
+
   const quantity = useSelector((state) => state.cart.quantity);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const logoutHandler = () => {
-    console.log('logout')
+    console.log('logout');
     dispatch(logout());
   };
 
-  // console.log(quantity);
   return (
     <Container>
       <Wrapper>
@@ -99,12 +100,17 @@ const Navbar = () => {
         </Center>
         <Rigth>
           <MenuItem>
-            <LinkStyled to="/register"> REGISTER</LinkStyled>
+            {!user && <LinkStyled to="/register"> REGISTER</LinkStyled>}
           </MenuItem>
           <MenuItem>
-            <LinkStyled to="/login">SIGN IN</LinkStyled>
+            {user ? (
+              <>{user.username}</>
+            ) : (
+              <LinkStyled to="/login">SIGN IN</LinkStyled>
+            )}
           </MenuItem>
-          <MenuItem onClick={logoutHandler}>LOGOUT</MenuItem>
+          {user && <MenuItem onClick={logoutHandler}>LOGOUT</MenuItem>}
+
           <Link to="/cart">
             <MenuItem>
               <Badge badgeContent={quantity} color="primary">
