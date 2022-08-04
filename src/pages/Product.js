@@ -6,9 +6,10 @@ import Navbar from '../components/Navbar';
 import NewsLetter from '../components/Newsletter';
 import { useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
-import { publicRequest } from '../requestMethods';
+import { currentUser, publicRequest } from '../requestMethods';
 import { addProduct } from '../redux/cartRedux';
 import { useDispatch } from 'react-redux';
+import { createCart } from '../redux/apiCalls';
 // import axios from 'axios';
 
 const Container = styled.div``;
@@ -137,14 +138,7 @@ const Product = () => {
       } catch (err) {
         console.log(err);
       }
-      // try {
-      //   const res = await axios.get(
-      //     `http://localhost:5000/api/products/find/${id}`
-      //   );
-      //   setProduct(res.data);
-      // } catch (err) {
-      //   console.log(err);
-      // }
+    
     };
     getProduct();
   }, [id]);
@@ -159,6 +153,8 @@ const Product = () => {
 
   const handleClick = () => {
     dispatch(addProduct({ ...product, quantity, color, size }));
+    createCart({userId: currentUser._id, products: []})
+  
   };
   return (
     <Container>
