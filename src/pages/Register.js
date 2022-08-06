@@ -57,7 +57,6 @@ const Button = styled.button`
 
 const Register = () => {
   const [inputs, setInputs] = useState({});
-  const [passwordConfirm, setPasswordConfirm] = useState('');
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -67,60 +66,63 @@ const Register = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (passwordConfirm !== inputs.password) {
-      console.log('password doesnt match');
-    } else {
       register(inputs);
-    }
+      e.target.reset();
   };
-  console.log(passwordConfirm);
-  console.log(inputs);
+
   return (
     <Container>
       <Wrapper>
         <Title>REGISTER</Title>
-        <Form>
+        <Form onSubmit={handleClick}>
           <Input
             name="name"
             type="text"
             placeholder="name"
             onChange={handleChange}
+            required
           ></Input>
           <Input
             name="lastName"
             type="text"
             placeholder="last name"
             onChange={handleChange}
+            required
           ></Input>
           <Input
             name="username"
             type="text"
             placeholder="username"
             onChange={handleChange}
+            required
           ></Input>
           <Input
             name="email"
             type="email"
             placeholder="email"
             onChange={handleChange}
+            required
           ></Input>
           <Input
             name="password"
             type="password"
             placeholder="password"
             onChange={handleChange}
+            required
           ></Input>
           <Input
             name="passwordConfirm"
             type="password"
             placeholder="confirm password"
-            onChange={(e) => setPasswordConfirm(e.target.value)}
+            pattern={inputs.password}
+            title="Password doesn't match"
+            required
           ></Input>
           <Agreement>
             By creating an account , I consent to the processing of my personal
             data in accordance with <b>PRIVACY POLICE</b>
           </Agreement>
-          <Button onClick={handleClick}>CREATE</Button>
+          <Button type="submit">CREATE</Button>
         </Form>
       </Wrapper>
     </Container>
